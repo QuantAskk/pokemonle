@@ -175,10 +175,10 @@
                     align="center"
                     v-if="settings.shapeOpen">
                         <template slot-scope="scope">
-                            <el-tag style="font-size: 17px" :type="scope.row.shape.col">
+                            <el-tag :type="scope.row.shape.col">
                                 {{ scope.row.shape.key }}
                             </el-tag>
-                            <el-tag style="font-size: 17px" :type="scope.row.col.col">
+                            <el-tag :type="scope.row.col.col">
                                 {{ scope.row.col.key }}
                             </el-tag>
                         </template>
@@ -190,7 +190,7 @@
                     align="center">
                         <template slot-scope="scope">
                             <a v-for="item in scope.row.type">
-                                <el-tag style="font-size: 17px" :type="item.col">
+                                <el-tag :type="item.col">
                                     {{ item.key }}
                                 </el-tag>
                             </a>
@@ -202,16 +202,16 @@
                     min-width="150"
                     align="center">
                         <template slot-scope="scope">
-                            <el-tag style="font-size: 17px" :type="scope.row.pow.col">
+                            <el-tag :type="scope.row.pow.col">
                                 {{ ValueText(scope.row.pow.key,scope.row.pow.value) }}
                             </el-tag>
-                            <el-tag style="font-size: 17px" :type="scope.row.speed.col" v-if="settings.battleOpen">
+                            <el-tag :type="scope.row.speed.col" v-if="settings.battleOpen">
                                 速度:{{ ValueText(scope.row.speed.key,scope.row.speed.value) }}
                             </el-tag>
-                            <el-tag style="font-size: 17px" :type="scope.row.attack.col" v-if="settings.battleOpen">
+                            <el-tag :type="scope.row.attack.col" v-if="settings.battleOpen">
                                 {{ scope.row.attack.key }}
                             </el-tag>
-                            <el-tag style="font-size: 17px" :type="scope.row.defense.col" v-if="settings.battleOpen">
+                            <el-tag :type="scope.row.defense.col" v-if="settings.battleOpen">
                                 {{ scope.row.defense.key }}
                             </el-tag>
                         </template>
@@ -222,7 +222,7 @@
                     min-width="120"
                     align="center">
                         <template slot-scope="scope">
-                            <el-tag style="font-size: 17px" :type="scope.row.gen.col">
+                            <el-tag :type="scope.row.gen.col">
                                 {{ ValueText(scope.row.gen.key,scope.row.gen.value) }}
                             </el-tag>
                         </template>
@@ -234,7 +234,7 @@
                     align="center">
                         <template slot-scope="scope">
                             <a v-for="item in scope.row.ability">
-                                <el-tag style="font-size: 17px" :type="item.col">
+                                <el-tag :type="item.col">
                                     {{ item.key }}
                                 </el-tag>
                             </a>
@@ -246,10 +246,10 @@
                     min-width="170"
                     align="center">
                         <template slot-scope="scope">
-                            <el-tag style="font-size: 17px" :type="scope.row.evo.col" v-if="scope.row.evo.key!=null">
+                            <el-tag :type="scope.row.evo.col" v-if="scope.row.evo.key!=null">
                                 {{ scope.row.evo.key }}
                             </el-tag>
-                            <el-tag style="font-size: 17px" :type="scope.row.stage.col">
+                            <el-tag :type="scope.row.stage.col">
                                 {{ scope.row.stage.key }}
                             </el-tag>
                         </template>
@@ -262,11 +262,11 @@
                     v-if="settings.catchOpen">
                         <template slot-scope="scope">
                             <a v-for="item in scope.row.egg">
-                                <el-tag style="font-size: 17px" :type="item.col">
+                                <el-tag :type="item.col">
                                     {{ item.key }}
                                 </el-tag>
                             </a>
-                            <el-tag style="font-size: 17px" :type="scope.row.catrate.col">
+                            <el-tag :type="scope.row.catrate.col">
                                 捕获率:{{ ValueText(scope.row.catrate.key,scope.row.catrate.value) }}
                             </el-tag>
                         </template>
@@ -293,6 +293,7 @@
 <script>
     import axios from 'axios'
     import { MessageBox } from 'element-ui';
+    import '../styles/Guess.css'
 
     function truncateString(str, maxLength) {
         if (str.length > maxLength) {
@@ -761,36 +762,3 @@
         }
     }
 </script>
-
-<style>
-
-    .guess{
-        margin-top: -2%;
-        margin-left: 5%;
-        margin-right: 5%;
-        font-size: 3rem;
-    }
-    .inputlayout{
-        display: flex;
-        text-align: center;
-        justify-content: center;
-    }
-    .inputbox{
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        width: 60%;
-    }
-    .times{
-        color: rgb(144, 147, 153);
-        padding-top:10px;
-        font-size: 1.5rem;
-    }
-    .setting{
-        margin-left: 5%;
-        margin-right: 5%;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-</style>
