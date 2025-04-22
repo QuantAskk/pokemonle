@@ -128,7 +128,7 @@
                         style="width: 100%"></el-autocomplete>
                     </el-col>
                     <el-col :xs="5" :sm="4" :md="3" :lg="3" :xl="2">
-                        <el-button type="primary" style="width: 100%" :disabled="this.gameover" @click="Guess()">
+                        <el-button type="primary" style="width: 100%" :disabled="this.gameover || this.isGuessing" @click="Guess()">
                             {{ this.gameover ? '已结束' : '确定' }}
                         </el-button>
                     </el-col>
@@ -139,7 +139,8 @@
                     <el-col :span="12"><div class="grid-content bg-purple-light">bbb</div></el-col> -->
                 </el-row>
                 <el-row class="times">
-                    猜测次数：{{this.times}}/{{this.settings.maxguess}}
+                    <span style="padding-right:10px">猜测次数：{{this.times}}/{{this.settings.maxguess}}</span>
+                    <el-button style="text-align" type="danger" :disabled="this.gameover" @click="Surrender()">投降🏳️</el-button>
                 </el-row>
                 <el-table
                 :data="tableData"
@@ -313,6 +314,7 @@
                 gameover:false,
                 settingVisble:false,
                 introVisble:false,
+                isGuessing:false,
                 gens:["全世代","第一世代","第二世代","第三世代","第四世代","第五世代","第六世代","第七世代","第八世代","第九世代"],
                 hards:["普通模式","简单模式"],
                 settings:{
@@ -414,6 +416,7 @@
             async Guess(){
                 const answer=sessionStorage.getItem('answer')
                 if(answer==null)return;
+                this.isGuessing = true
                 try{
                     const options = {
                         method: 'GET',
@@ -609,6 +612,8 @@
                 }catch(error){
                     console.error(error)
                 }
+                this.input = ''
+                this.isGuessing = false
             },
             ValueText(key,value){
                 if(value=='high')
@@ -705,6 +710,10 @@
                     console.error(error)
                 }
             },
+            Surrender(){
+                this.gameover = true;
+                this.ReplayAnswer();
+            },
             CloseSetting(){
                 this.saveSettings();
                 this.settingVisble=false;
@@ -774,6 +783,7 @@
     }
     .times{
         color: rgb(144, 147, 153);
+        padding-top:10px;
         font-size: 1.5rem;
     }
     .setting{
