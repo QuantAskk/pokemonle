@@ -6,6 +6,8 @@
 
 由于个人水平有限所以可能会出现许多意料之外的 bug ，欢迎在 Issues 提出。
 
+视频：[https://www.bilibili.com/video/BV1XmLFz5E7Y](https://www.bilibili.com/video/BV1XmLFz5E7Y)
+
 ## 部署指南
 
 #### 环境要求
