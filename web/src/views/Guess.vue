@@ -127,12 +127,12 @@
                         :trigger-on-focus="false"
                         style="width: 100%"></el-autocomplete>
                     </el-col>
-                    <el-col :xs="5" :sm="4" :md="4" :lg="3" :xl="2">
+                    <el-col :xs="5" :sm="4" :md="3" :lg="3" :xl="2">
                         <el-button type="primary" style="width: 100%" :disabled="this.gameover" @click="Guess()">
                             {{ this.gameover ? '已结束' : '确定' }}
                         </el-button>
                     </el-col>
-                    <el-col :xs="5" :sm="4" :md="4" :lg="3" :xl="2">
+                    <el-col :xs="5" :sm="4" :md="3" :lg="3" :xl="2">
                         <el-button type="success" style="width: 100%" @click="Restart()">重新开始</el-button>
                     </el-col>
                     <!-- <el-col :span="12"><div class="grid-content bg-purple">aaa</div></el-col>
