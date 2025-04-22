@@ -127,20 +127,20 @@
                         :trigger-on-focus="false"
                         style="width: 100%"></el-autocomplete>
                     </el-col>
-                    <el-col :span="2">
+                    <el-col :xs="5" :sm="4" :md="4" :lg="3" :xl="2">
                         <el-button type="primary" style="width: 100%" :disabled="this.gameover" @click="Guess()">
                             {{ this.gameover ? '已结束' : '确定' }}
                         </el-button>
                     </el-col>
-                    <el-col :span="2">
+                    <el-col :xs="5" :sm="4" :md="4" :lg="3" :xl="2">
                         <el-button type="success" style="width: 100%" @click="Restart()">重新开始</el-button>
                     </el-col>
                     <!-- <el-col :span="12"><div class="grid-content bg-purple">aaa</div></el-col>
                     <el-col :span="12"><div class="grid-content bg-purple-light">bbb</div></el-col> -->
                 </el-row>
-                <div class="times">
+                <el-row class="times">
                     猜测次数：{{this.times}}/{{this.settings.maxguess}}
-                </div>
+                </el-row>
                 <el-table
                 :data="tableData"
                 style="width: 100%"
@@ -773,6 +773,7 @@
         width: 60%;
     }
     .times{
+        color: rgb(144, 147, 153);
         font-size: 1.5rem;
     }
     .setting{
