@@ -4,6 +4,7 @@ import utils.dataUtils as dataUtils
 import utils.pokeUtils as pokeUtils
 import json
 import random
+import time
 
 app=Flask(__name__)
 CORS(app)
@@ -11,6 +12,7 @@ CORS(app)
 PokeList=dataUtils.FileGetter('pokemon_full_list')
 PokeList=pokeUtils.fliterPokeList(PokeList)
 NameList=pokeUtils.OnlyNameGet(PokeList)
+cache = pokeUtils.cache
 print(NameList)
 
 @app.route('/debug',methods=["GET"])
@@ -19,9 +21,15 @@ def debug():
 
 @app.route('/initget',methods=["GET"])
 def initget():
+    key = int(time.time())
+    id = cache.get(key)
+    if id != None:
+        return jsonify(
+            {"ans": key, "gen": pokeUtils.Gens.index(PokeList[id]["generation"])}
+        )
     hard=request.args.get('difficulty', default=0, type=int)
     gen=request.args.get('gen', default=0, type=int)
-    return str(pokeUtils.getPokeByDf(PokeList,hard,gen))
+    return jsonify(pokeUtils.getPokeByDf(PokeList,hard,gen))
 
 @app.route('/nameget',methods=["GET"])
 def nameget():
@@ -35,6 +43,8 @@ def guess():
     if(answer==None or guess==None):
         return "guess name error"
     ans=pokeUtils.ComparePoke(PokeList,answer,guess)
+    if ans == None:
+        return "guess name error"
     return jsonify(ans)
 
 @app.route('/getimage',methods=["GET"])
@@ -47,11 +57,14 @@ def getimage():
 
 @app.route('/getanswer',methods=["GET"])
 def getanswer():
-    pokemon=request.args.get('pokemon', default=0, type=int)
+    id = request.args.get("pokemon", default=0, type=int)
+    pokemon = cache.get(id)
+    if pokemon == None:
+        return "guess name error"
     answer=pokeUtils.getPokeByName(PokeList,NameList[pokemon])
     if(answer==None):
         return "guess name error"
-    ans=pokeUtils.ComparePoke(PokeList,answer,answer)
+    ans=pokeUtils.ComparePoke(PokeList,id,answer)
     return jsonify(ans)
 
 if __name__=='__main__':

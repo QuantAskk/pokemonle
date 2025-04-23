@@ -1,6 +1,8 @@
 import json
+import sys
+current_dir = sys.path[0]
 
-root="D:/project/blog/fribge/serve/src"
+root=current_dir
 
 def FileGetter(path):
     with open(root+f'/data/{path}.json','r',encoding='utf-8') as f:

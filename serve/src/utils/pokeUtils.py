@@ -2,7 +2,35 @@ import random
 import re
 import json
 import utils.dataUtils as dataUtils
+import time
+import collections
 
+class LRUCache(collections.OrderedDict):
+    def __init__(self, size=128):
+        self.size = (size,)
+        self.cache = collections.OrderedDict()
+
+    def get(self, key):
+        if key in self.cache:
+            val = self.cache.pop(key)
+            self.cache[key] = val
+        else:
+            val = None
+
+        return val
+
+    def set(self, key, val):
+        if key in self.cache:
+            val = self.cache.pop(key)
+            self.cache[key] = val
+        else:
+            if len(self.cache) == self.size:
+                self.cache.popitem(last=False)
+                self.cache[key] = val
+            else:
+                self.cache[key] = val
+
+cache = LRUCache(size=10000)
 Types=["一般","火","水","电","草","冰","格斗","毒","地面","飞行","超能力","虫","岩石","幽灵","龙","恶","钢","妖精","无"]
 Gens=["第一世代","第二世代","第三世代","第四世代","第五世代","第六世代","第七世代","第八世代","第九世代"]
 Labels=[
@@ -111,7 +139,11 @@ def getPokeByDf(PokeList,hard,ngen):
                 idx=Gens.index(gen)
                 if((((ngen-10)>>idx)&1)==1):
                     break
-    return ans
+
+    key = int(time.time())
+    cache.set(key, ans)
+    poke = {"ans": key, "gen": Gens.index(gen)}
+    return poke
 
 def getPokeByName(PokeList,name):
     i=0
@@ -215,7 +247,10 @@ def getLabel(Info):
            Label.append(x["name"])
     return Label
 
-def ComparePoke(PokeList,Id1,Id2):
+def ComparePoke(PokeList,key,Id2):
+    Id1 = cache.get(key)
+    if Id1 == None:
+        return None
     Path1=PokeList[Id1]["index"]+'-'+PokeList[Id1]["name"]
     Path2=PokeList[Id2]["index"]+'-'+PokeList[Id2]["name"]
     Info1=dataUtils.PokeGetter(Path1)
