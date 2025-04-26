@@ -236,7 +236,8 @@
                       v-for="(gen, index) in genOptions"
                       :key="gen.value"
                       v-model="settings.selectedGens[index]"
-                      @change="updateSetting">
+                      @change="updateSetting"
+					  :disabled="true">
                     {{ gen.label }}
                   </el-checkbox>
                 </div>
