@@ -242,6 +242,8 @@ def ComparePoke(PokeList, Id1, Id2):
         ans["answer"] = "True"
     else:
         ans["answer"] = "False"
+        
+    ans["index"] = PokeList[Id2]["index"]
 
     # 属性检查
     types = []
@@ -401,18 +403,33 @@ def ComparePoke(PokeList, Id1, Id2):
     Label1 = getLabel(Info1)
     Label2 = getLabel(Info2)
     Label = []
+    
+    # 检查两只宝可梦是否都有形态变化
+    form_labels_1 = [l for l in Label1 if "形态" in l or any(region in l for region in ["阿罗拉", "伽勒尔", "洗翠", "帕底亚"])]
+    form_labels_2 = [l for l in Label2 if "形态" in l or any(region in l for region in ["阿罗拉", "伽勒尔", "洗翠", "帕底亚"])]
+    
+    has_form_1 = len(form_labels_1) > 0
+    has_form_2 = len(form_labels_2) > 0
+    
     for x in Label2:
-        flag = False
-        for y in Label1:
-            if (x == y):
-                flag = True
-                break
-        if (flag):
+        exact_match = x in Label1
+        
+        # 检查是否是形态标签
+        is_form_label = "形态" in x or any(region in x for region in ["阿罗拉", "伽勒尔", "洗翠", "帕底亚"])
+        
+        if exact_match:
+            # 完全匹配，前端会渲染为绿色
             Label.append({"key": x, "value": "True"})
         else:
-            Label.append({"key": x, "value": "False"})
+            # 不完全匹配，检查是否是形态标签且双方都有形态变化
+            if is_form_label and has_form_1 and has_form_2:
+                Label.append({"key": x, "value": "False", "col": "warning"})
+            else:
+                # 其他情况
+                Label.append({"key": x, "value": "False"})
+    
     ans["label"] = Label
-
+    
     return ans
 
 # PokeList=dataUtils.FileGetter('pokemon_full_list')

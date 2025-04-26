@@ -1,6 +1,5 @@
 <template>
     <section class="app">
-        <!-- <HeadMenu></HeadMenu> -->
         <router-view></router-view>
     </section>
 </template>

@@ -1,0 +1,874 @@
+.guess {
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.times {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* 设置对话框样式 */
+.enhanced-dialog {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.enhanced-dialog .el-dialog__header {
+  background-color: #f5f7fa !important;
+  border-bottom: 1px solid #e4e7ed !important;
+  padding: 15px 20px !important;
+}
+
+.enhanced-dialog .el-dialog__title {
+  font-weight: 600 !important;
+  color: #303133 !important;
+}
+
+.enhanced-dialog .el-dialog__body {
+  padding: 20px !important;
+}
+
+.enhanced-dialog .el-dialog__footer {
+  text-align: center !important;
+  border-top: 1px solid #e4e7ed !important;
+  padding: 15px 20px !important;
+}
+
+.enhanced-dialog .dialog-footer {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.enhanced-dialog .dialog-footer .el-button {
+  min-width: 120px !important;
+  margin: 0 !important;
+}
+
+/* 设置分区样式 */
+.setting {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.setting-section {
+  border-bottom: 1px dashed #EBEEF5;
+  padding-bottom: 15px;
+}
+
+.setting-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.setting-title {
+  font-weight: 600;
+  color: #303133;
+  margin-bottom: 10px;
+}
+
+.setting-note {
+  margin-top: 5px;
+  color: #909399;
+}
+
+.switch-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 规则介绍样式 */
+.intro-content {
+  line-height: 1.6;
+}
+
+.hint-section {
+  background-color: #f5f7fa;
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin: 15px 0;
+}
+
+.hint-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.hint-item:last-child {
+  margin-bottom: 0;
+}
+
+.hint-item .el-tag {
+  margin-right: 10px;
+}
+
+/* 制作人员样式 - 修复 */
+.author-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.author-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.author-links .el-button {
+  min-width: 120px;
+}
+
+.author-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.author-card {
+  width: 120px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.author-avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.author-info {
+  padding: 8px;
+  background-color: #fff;
+  text-align: center;
+}
+
+/* 世代选择样式 */
+.gen-selection {
+  margin: 10px 0;
+}
+
+.gen-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* 输入区域相关样式调整 */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  position: relative;
+}
+
+.autocomplete-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 60px; /* 恢复V1.0的间距 */
+}
+
+.input-row {
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.button-row {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 5;
+}
+
+.autocomplete-dropdown {
+  z-index: 9 !important;
+  max-height: 250px !important;
+  overflow-y: auto !important;
+}
+
+/* 桌面端卡片居中容器 */
+.pokemon-cards-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* 卡片基础样式 */
+.pokemon-cards {
+  display: flex;
+  margin-bottom: 30px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.pokemon-card {
+  border: 1px solid #EBEEF5;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #EBEEF5;
+}
+
+.pokemon-image {
+  margin-right: 15px;
+}
+
+.pokemon-name {
+  font-weight: bold;
+}
+
+.section-title {
+  color: #606266;
+  font-weight: 500;
+}
+
+.section-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.section-content img {
+  width: 40px;
+  height: 40px;
+}
+
+.info-tag {
+  margin: 2px;
+}
+
+/* 移动端卡片样式 */
+.mobile-cards {
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mobile-cards .pokemon-card {
+  padding: 12px;
+}
+
+.mobile-cards .card-header {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.mobile-cards .pokemon-name {
+  font-size: 16px;
+}
+
+.mobile-cards .card-section {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #EBEEF5;
+}
+
+.mobile-cards .card-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.mobile-cards .section-title {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* 桌面端卡片样式 - 水平布局 */
+.desktop-cards {
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.desktop-card {
+  display: flex;
+  padding: 0;
+  width: 100%;
+}
+
+.desktop-card .card-header {
+  flex-direction: column;
+  padding: 15px;
+  border-bottom: none;
+  border-right: 1px solid #EBEEF5;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+}
+
+.desktop-card .pokemon-image {
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+
+.desktop-card .pokemon-name {
+  font-size: 16px;
+  text-align: center;
+}
+
+.desktop-card-content {
+  display: flex;
+  flex: 1;
+  padding: 15px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  justify-content: space-around;
+}
+
+.desktop-section {
+  margin: 0 10px;
+  min-width: 80px;
+  text-align: center;
+  flex: 1;
+  max-width: 120px;
+}
+
+.desktop-section .section-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #EBEEF5;
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+
+.desktop-section .section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.desktop-card-content::-webkit-scrollbar {
+  height: 6px;
+}
+
+.desktop-card-content::-webkit-scrollbar-thumb {
+  background-color: #c0c4cc;
+  border-radius: 3px;
+}
+
+.desktop-card-content::-webkit-scrollbar-track {
+  background-color: #f5f7fa;
+}
+
+/* 对手桌面端卡片样式 - 水平布局 */
+.p2-desktop-cards {
+  flex-direction: column;
+  gap: 3px;
+  margin: 0 auto;
+}
+
+.p2-desktop-card {
+  display: flex;
+  padding: 0;
+  width: 100%;
+}
+
+.p2-desktop-card-content {
+  display: flex;
+  flex: 1;
+  padding: 15px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  justify-content: space-around;
+}
+
+.p2-desktop-section {
+  margin-top: 0 10px;
+  margin-bottom: 0 10px;
+  min-width: 20px;
+  text-align: center;
+  flex: 1;
+  max-width: 40px;
+}
+
+.p2-desktop-section .section-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #EBEEF5;
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+
+.p2-desktop-section .section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.p2-desktop-card-content::-webkit-scrollbar {
+  height: 6px;
+}
+
+.p2-desktop-card-content::-webkit-scrollbar-thumb {
+  background-color: #c0c4cc;
+  border-radius: 3px;
+}
+
+.p2-desktop-card-content::-webkit-scrollbar-track {
+  background-color: #f5f7fa;
+}
+
+/* 按钮样式优化 */
+.button-col {
+  display: flex;
+  justify-content: center;
+}
+
+.action-button {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.el-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.el-button span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 优化头部按钮 */
+.header-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.header-buttons .el-button {
+  margin-left: 10px;
+}
+
+/* 全局弹窗样式重置 */
+.el-message-box {
+  display: flex !important;
+  flex-direction: column !important;
+  max-height: 90vh !important;
+  margin: 15vh auto !important;
+  position: relative !important;
+}
+
+/* 结果对话框样式 */
+.result-dialog {
+  border-radius: 8px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+  overflow: hidden !important;
+}
+
+.result-dialog .el-message-box__header {
+  padding: 15px !important;
+  background-color: #f5f7fa !important;
+  border-bottom: 1px solid #e4e7ed !important;
+  text-align: center !important;
+}
+
+.result-dialog .el-message-box__title {
+  font-size: 18px !important;
+  color: #303133 !important;
+  font-weight: 600 !important;
+}
+
+.result-dialog .el-message-box__content {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.result-dialog .el-message-box__btns {
+  padding: 10px 20px 15px !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.result-dialog .el-button {
+  width: 120px !important;
+  margin: 0 !important;
+}
+
+.result-dialog-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-dialog-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #f5f7fa;
+}
+
+.result-image-container {
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.result-pokemon-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.result-title-container {
+  flex: 1;
+}
+
+.result-pokemon-name {
+  font-size: 20px;
+  margin: 0 0 5px 0;
+  color: #303133;
+}
+
+.result-pokemon-gen {
+  margin: 0;
+  color: #606266;
+  font-size: 14px;
+}
+
+.result-info-compact {
+  padding: 15px;
+}
+
+.result-info-row {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.result-info-row:last-child {
+  margin-bottom: 0;
+}
+
+.result-info-label {
+  min-width: 60px;
+  font-weight: 500;
+  color: #606266;
+}
+
+.result-info-value {
+  color: #303133;
+}
+
+.result-info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.result-tag {
+  margin: 2px;
+}
+
+.result-stats {
+  text-align: center;
+  padding: 10px 15px;
+  color: #606266;
+  border-top: 1px solid #e4e7ed;
+  background-color: #f5f7fa;
+}
+
+.result-guess-count {
+  font-size: 15px;
+  margin: 0;
+}
+
+/* 夜间模式样式 */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .pokemon-card {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .card-header {
+  border-bottom-color: #3a3a3a;
+  border-right-color: #3a3a3a;
+}
+
+body.dark-mode .pokemon-name {
+  color: #e0e0e0;
+}
+
+body.dark-mode .section-title {
+  color: #c0c0c0;
+}
+
+body.dark-mode .card-section,
+body.dark-mode .desktop-section .section-title {
+  border-bottom-color: #3a3a3a;
+}
+
+body.dark-mode .el-dialog,
+body.dark-mode .enhanced-dialog .el-dialog__header {
+  background-color: #2a2a2a !important;
+  border-color: #3a3a3a !important;
+}
+
+body.dark-mode .el-dialog__title,
+body.dark-mode .setting-title {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .el-input__inner,
+body.dark-mode .el-autocomplete .el-input__inner {
+  background-color: #333333;
+  color: #e0e0e0;
+  border-color: #4a4a4a;
+}
+
+body.dark-mode .el-message-box {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+}
+
+body.dark-mode .el-message-box__title {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .el-message-box__content {
+  color: #c0c0c0;
+}
+
+body.dark-mode .result-dialog-header,
+body.dark-mode .result-stats {
+  background-color: #333333;
+}
+
+body.dark-mode .result-pokemon-name {
+  color: #e0e0e0;
+}
+
+body.dark-mode .result-pokemon-gen,
+body.dark-mode .result-info-label {
+  color: #c0c0c0;
+}
+
+body.dark-mode .result-info-value {
+  color: #e0e0e0;
+}
+
+body.dark-mode .hint-section {
+  background-color: #333333;
+}
+
+body.dark-mode .author-info {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .el-checkbox__label {
+  color: #c0c0c0;
+}
+
+body.dark-mode .el-switch__label {
+  color: #c0c0c0;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+  .guess {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .times {
+    font-size: 1rem;
+  }
+
+  .el-message-box {
+    width: 85% !important;
+    max-width: 320px !important;
+  }
+
+  .result-dialog-header {
+    padding: 12px;
+  }
+
+  .result-pokemon-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .result-pokemon-name {
+    font-size: 18px;
+  }
+
+  .result-info-compact {
+    padding: 12px;
+  }
+
+  .result-info-row {
+    margin-bottom: 8px;
+  }
+
+  .result-info-label {
+    min-width: 50px;
+  }
+
+  .enhanced-dialog .el-dialog__body {
+    padding: 15px !important;
+  }
+
+  .setting-section {
+    padding-bottom: 12px;
+  }
+
+  .gen-checkboxes {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .autocomplete-wrapper {
+    margin-bottom: 80px;
+  }
+
+  .author-cards {
+    gap: 20px;
+  }
+}
+
+/* 强制按钮居中的样式 */
+.result-dialog .el-message-box__btns {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 10px 20px 15px !important;
+  text-align: center !important;
+}
+
+.result-dialog .el-button {
+  width: 120px !important;
+  margin: 0 auto !important;
+  float: none !important;
+  display: block !important;
+}
+
+.result-dialog .el-message-box__btns button:nth-child(2) {
+  margin-left: 0 !important;
+}
+
+.result-dialog .el-message-box__btns {
+  display: flex !important;
+  justify-content: space-around !important;
+  padding: 10px 20px 15px !important;
+}
+
+.result-dialog .el-button {
+  width: 45% !important;
+  margin: 0 5px !important;
+}
+
+.el-dialog__footer {
+  text-align: center !important;
+}
+
+.dialog-footer {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.el-autocomplete-suggestion {
+  max-height: 200px !important;
+  margin-top: 5px !important;
+  z-index: 100 !important;
+}
+
+.el-autocomplete-suggestion__wrap {
+  max-height: 180px !important;
+}
+
+@media screen and (max-width: 768px) {
+  .button-row {
+    margin-top: 15px;
+    z-index: 20;
+  }
+
+  .action-button {
+    height: 44px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .button-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .button-col {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+
+  .action-button {
+    height: 48px;
+    font-size: 14px;
+    padding: 0 10px;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .el-button span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+}
+
+.player-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
