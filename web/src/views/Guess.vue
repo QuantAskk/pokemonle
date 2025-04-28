@@ -872,7 +872,8 @@ export default {
           const cheater = this.cheaters[Math.floor(Math.random() * this.cheaters.length)];
           this.temp.cheat.imgUrl = require(`@/assets/img/${cheater}.gif`);
           this.temp.cheat.id = 0;
-          if (this.settings.cheatOpen)
+          // 只有在未猜对答案且开启了恶作剧时才隐藏属性
+          if (this.settings.cheatOpen && this.temp.answer !== 'True')
             this.temp.cheat.id = 1 + Math.floor(Math.random() * 6);
 
           this.tableData.push(this.temp);
