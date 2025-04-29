@@ -5,7 +5,7 @@ from flask_socketio import emit, SocketIO, join_room, close_room, leave_room
 import utils.dataUtils as dataUtils
 import utils.pokeUtils as pokeUtils
 from utils.redisTool import RedisTool
-from utils.settingsTool import getRealSettings
+from utils.settingsTool import getRealSettings, setSettings
 
 app = Flask(__name__, static_folder='dist', static_url_path='')
 CORS(app)
@@ -90,8 +90,15 @@ def getanswerDual():
     return jsonify(ans)
 
 
+@app.route('/getDualSettings', methods=["GET"])
+def getDualSettings():
+    room = request.args.get('room')
+    settings = getRealSettings(redis, room)
+    return jsonify(settings)
+
+
 @app.route('/findroom', methods=["GET"])
-def findroom():
+def findRoom():
     room = request.args.get('room', default=0)
     users = redis.hget(room, 'users')
     if users:
@@ -113,16 +120,8 @@ def handle_join(data):
         redis.hset(room, "answered", 0)
         redis.hset(room, "users", 1)
         redis.hset(room, "hostname", username)
-        redis.hset(room, "hardid", data["hardid"])
-        redis.hset(room, "selectedGens", ",".join(map(str, data["selectedGens"])))
-        redis.hset(room, "battleOpen", str(data["battleOpen"]))
-        redis.hset(room, "shapeOpen", str(data["shapeOpen"]))
-        redis.hset(room, "catchOpen", str(data["catchOpen"]))
-        redis.hset(room, "showGenArrow", str(data["showGenArrow"]))
-        redis.hset(room, "cheatOpen", str(data["cheatOpen"]))
-        redis.hset(room, "reverseDisplay", str(data["reverseDisplay"]))
-        redis.hset(room, "maxGuess", int(data["maxGuess"]))
         redis.hset(room, "username", username)
+        setSettings(redis, room, data)
         join_room(room)
         emit("join_event", {"message": "host", 'username': username, 'room': room}, to=room)
     else:
@@ -156,6 +155,7 @@ def handle_leave(data):
 
 @socketio.on("handle_config")
 def handle_config(data):
+    setSettings(redis, data["room"], data)
     emit("setting_event", data, to=data["room"])
 
 
@@ -211,3 +211,4 @@ def handle_answer(data):
 
 if __name__ == '__main__':
     socketio.run(host='0.0.0.0', port=9000, app=app)
+    # socketio.run(host='0.0.0.0', port=443, app=app, keyfile='fullchain.pem', certfile='privkey.pem')

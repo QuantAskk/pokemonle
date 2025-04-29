@@ -1,6 +1,18 @@
 # -*-coding: utf-8 -*-
 # @Time    : 2025/4/24 10:41
 # @Author  : TyranitarX
+def setSettings(redis, room, data):
+    redis.hset(room, "hardid", data["hardid"])
+    redis.hset(room, "selectedGens", ",".join(map(str, data["selectedGens"])))
+    redis.hset(room, "battleOpen", str(data["battleOpen"]))
+    redis.hset(room, "shapeOpen", str(data["shapeOpen"]))
+    redis.hset(room, "catchOpen", str(data["catchOpen"]))
+    redis.hset(room, "showGenArrow", str(data["showGenArrow"]))
+    redis.hset(room, "cheatOpen", str(data["cheatOpen"]))
+    redis.hset(room, "reverseDisplay", str(data["reverseDisplay"]))
+    redis.hset(room, "maxGuess", int(data["maxGuess"]))
+
+
 def getRealSettings(redis, room):
     hardid = str(redis.hget(room, "hardid").decode('utf-8'))
     selectedGens = str(redis.hget(room, "selectedGens").decode('utf-8')).split(',')
