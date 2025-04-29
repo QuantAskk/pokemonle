@@ -221,7 +221,7 @@
             {
                 "name": "甲壳茧",
                 "stage": "1阶进化",
-                "text": "[[File:时间 随机 SV.png|30px|link=时间#随机]]等级7以上（随机）（50%概率）",
+                "text": "等级7以上（随机）（50%概率）",
                 "image": "266Silcoon_Dream.png",
                 "back_text": "",
                 "from": "刺尾虫",
@@ -239,7 +239,7 @@
             {
                 "name": "盾甲茧",
                 "stage": "1阶进化",
-                "text": "[[File:时间 随机 SV.png|30px|link=时间#随机]]等级7以上（随机）（50%概率）",
+                "text": "等级7以上（随机）（50%概率）",
                 "image": "268Cascoon_Dream.png",
                 "back_text": "",
                 "from": "狩猎凤蝶",
